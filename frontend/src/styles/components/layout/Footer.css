@@ -1,0 +1,16 @@
+@charset "UTF-8";
+
+footer {
+    background: #ccc;
+    clear: both;
+    color: #333;
+    margin-top: 1em;
+    padding: 2em;
+}
+
+footer p {
+    font-size: 0.7em;
+    font-style: italic;
+    text-align: center;
+    margin: 0;
+}

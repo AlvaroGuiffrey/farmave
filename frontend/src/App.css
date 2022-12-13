@@ -1,0 +1,32 @@
+@charset "UTF-8";
+
+/* Archivo CSS con estilos generales utilizados en la aplicación.
+	Autor: Alvaro Guiffrey
+	Curso: Experto Universitario en Programación Web Full Stack
+  Fecha: 08/12/2022
+*/
+
+* {
+	box-sizing: border-box;
+}
+
+.App {
+  text-align: center;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+header, footer, nav, .contenedor {
+	margin: auto;
+	width: 90%;
+}
+
+h2 {
+  font-weight: 400;
+  color: #2e64a1;
+  margin: 0 0 1em;
+}
