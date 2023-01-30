@@ -1,8 +1,98 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+@charset "UTF-8";
+
+/* Archivo CSS con estilos generales utilizados en la aplicación.
+	Autor: Alvaro Guiffrey
+	Curso: Experto Universitario en Programación Web Full Stack
+  Fecha: 08/12/2022
+*/
+
+* {
+	box-sizing: border-box;
 }
 
-a {
-  color: #00B7FF;
+.App {
+  text-align: center;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+header, footer, nav, .contenedor {
+	margin: auto;
+	width: 90%;
+}
+
+h2 {
+  font-weight: 400;
+  color: #2e64a1;
+  margin: 0;
+}
+
+header {
+  background-color: #62f02a;
+  padding: 1em;
+  text-align: center;
+}
+
+h1 {
+  color: white;
+  font-size: 3em;
+  font-style: italic;
+  font-weight: bold;
+  margin-left: 1em;
+  margin-right: 1em;
+}
+
+header h1 {
+  display: inline-block;
+}
+
+
+.logo {
+  margin: 0px;
+}
+
+.infopage {
+  margin: 0;
+  color: green;
+}
+
+.infopage .example-orange {
+  color: #222;
+  background-color: rgb(255, 153, 0);
+}
+
+.infopage .example-orange .example-arrow {
+  background-color: rgb(255, 153, 0);
+}
+
+footer {
+  background: #ccc;
+  clear: both;
+  color: #333;
+  margin-top: 1em;
+  padding: 2em;
+}
+
+footer p {
+  font-size: 0.7em;
+  font-style: italic;
+  text-align: center;
+  margin: 0;
+}
+
+.btn-circle.btn-md {
+  width: 50px;
+  height: 50px;
+  padding: 6px 0px;
+  border-radius: 25px;
+  font-size: 10px;
+  text-align: center;
+}
+
+.center {
+  text-align: center;
 }

@@ -1,0 +1,81 @@
+{{#if error}}
+  <div class="container p-2 my-2">
+    <div class="alert alert-danger alert-dismissible">
+      <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+      <i class="fa-solid fa-triangle-exclamation"></i>
+        {{mensaje}}
+    </div>
+  </div>
+{{/if}}
+
+<div class="container p-4 my-4 border">
+    <h2 class="center">Administrador de novedades</h2>
+    <div class="row">
+        <div class="col text-end">
+            Hola <strong>{{usuario}}! </strong>
+            <a class="btn btn-danger" href="/admin/login/logout" title="Cerrar sesión de usuario"> 
+                <i class="fa-solid fa-arrow-right-from-bracket"></i> 
+                Cerrar Sesión
+            </a>
+       </div>
+    </div>
+    <div class="row">
+        <div class="col-2 align-items-end">
+            <button type="button" class="btn btn-primary position-relative" title="Cantidad de novedades">
+                Novedades
+                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                        {{cantidad}}
+                    </span>
+                </button>
+        </div>
+
+        <div class="col-7">
+            <h3>Listado de Novedades</h3>
+        </div>
+        {{#if btAgregar}}
+        <div class="col-2">
+            <a href="/admin/novedades/agregar" class="btn btn-success" title="Agregar novedad">
+                <i class="fa fa-plus"></i> Agregar
+            </a>
+        </div>
+        {{/if}}
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Título</th>
+                            <th scope="col">Imagen</th>
+                            <th scope="col" class="text-center">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each novedades}}
+                        <tr class="">
+                            <th scope="row">{{id}}</th>
+                            <td>{{titulo}}</td>
+                            <td>{{{imagen}}}</td>
+                            <td class="text-center">
+                                <a href="/admin/novedades/ver/{{id}}" class="btn btn-sm btn-primary" title="Ver novedad">
+                                    <i class="fa-solid fa-magnifying-glass"></i></a>
+                                {{#if ../autEditar}}
+                                <a href="/admin/novedades/editar/{{id}}" class="btn btn-sm btn-secondary" title="Editar novedad">
+                                    <i class="fa fa-pencil"></i></a>
+                                {{/if}}
+                                {{#if ../autEliminar}}
+                                <a href="/admin/novedades/eliminar/{{id}}" class="btn btn-sm btn-secondary" title="Eliminar novedad">
+                                    <i class="fa fa-trash"></i></a> 
+                                {{/if}}    
+                            </td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

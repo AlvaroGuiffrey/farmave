@@ -1,0 +1,76 @@
+{{#if alerta}}
+  <div class="container p-2 my-2">
+    <div class="alert alert-{{alertaTipo}} alert-dismissible">
+      <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+      <i class="fa-solid fa-triangle-exclamation"></i>
+        {{mensaje}}
+    </div>
+  </div>
+{{/if}}
+<div class="container p-4 my-4 border">
+    <h2 class="center">Administrador de Usuarios</h2>
+    <div class="row">
+        <div class="col text-end">
+            Hola <strong>{{usuario}}! </strong>
+            <a class="btn btn-danger" href="/admin/login/logout" title="Cerrar sesión de usuario"> 
+                <i class="fa-solid fa-arrow-right-from-bracket"></i> 
+                Cerrar Sesión
+            </a>
+       </div>
+    </div>
+    <div class="row">
+        <div class="col-2 align-items-end">
+            <button type="button" class="btn btn-primary position-relative" title="Cantidad de usuarios">
+                Usuarios
+                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                        {{cantidad}}
+                    </span>
+                </button>
+        </div>
+
+        <div class="col-7">
+            <h3>Listado de Usuarios</h3>
+        </div>
+        
+        <div class="col-2">
+            <a href="/admin/usuarios/agregarUsuario" class="btn btn-success" title="Agregar usuario">
+                <i class="fa fa-plus"></i> Agregar
+            </a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Usuario</th>
+                            <th scope="col" title="1-cliente, 2-empleado y 3-administrador">Tipo
+                                <button type="button" class="btn btn-sm btn-outline-info"><i class="fa-solid fa-circle-info"></i></button>
+                            </th>
+                            <th scope="col" class="text-center">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each usuarios}}
+                        <tr class="">
+                            <th scope="row">{{id}}</th>
+                            <td>{{usuario}}</td>
+                            <td>{{tipo}}</td>
+                            <td class="text-center">
+                                <a href="/admin/usuarios/editarUsuario/{{id}}" class="btn btn-sm btn-secondary" title="Editar usuario">
+                                    <i class="fa fa-pencil"></i></a>
+                                <a href="/admin/usuarios/eliminarUsuario/{{id}}" class="btn btn-sm btn-secondary" title="Eliminar usuario">
+                                    <i class="fa fa-trash"></i></a>      
+                            </td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </div>
+            
+        </div>
+    </div>
+</div>

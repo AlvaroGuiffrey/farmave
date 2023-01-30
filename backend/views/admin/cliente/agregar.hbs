@@ -1,0 +1,73 @@
+{{#if error}}
+  <div class="container p-2 my-2">
+    <div class="alert alert-danger alert-dismissible">
+      <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+      <i class="fa-solid fa-triangle-exclamation"></i>
+      {{mensaje}}
+    </div>
+  </div>
+{{/if}}
+{{#if info}}
+    <div class="container p-2 my-2">
+        <div class="alert alert-info alert-dismissible" role="alert">
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            <i class="fa-solid fa-triangle-exclamation"></i>
+            {{mensajeInfo}}
+        </div>
+    </div>    
+{{/if}}
+<div class="container p-4 my-4 border">
+  <h2 class="center">Administrador de Clientes</h2>
+    <div class="row">
+      <div class="col text-end">
+        Hola <strong>{{usuario}}!</strong>
+        <a class="btn btn-danger" href="/admin/login/logout" title="Cerrar sesión de usuario"> 
+          <i class="fa-solid fa-arrow-right-from-bracket"></i> 
+          Cerrar Sesión
+        </a>
+        <a class="btn btn-secondary" href="/admin/clientes" title="Volver al listado de Clientes"> 
+          <i class="fa-solid fa-arrow-right-arrow-left"></i> 
+          Volver
+        </a>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-2 align-items-end">
+        <button type="button" class="btn btn-primary position-relative" title="Cantidad de clientes">
+            Clientes
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                {{cantidad}}
+            </span>
+        </button>
+      </div>
+      <div class="col-7">
+        <h3>Agregar Cliente</h3>
+      </div>
+    </div>
+    <div class="row border p-2">
+      <form action="/admin/clientes/agregar" method="post">
+        <input type="hidden" name="id_usuario" id="id_usuario" value="{{id_usuario}}">
+        <input type="hidden" name="estado" id="estado" value="1">
+        <div class="form-group col-6 mb-4 mt-3">
+          <input type="text" name="nombres" id="nombres" class="form-control" placeholder="Nombres del cliente">
+        </div>
+        <div class="form-group col-6 mb-3 mt-3">
+          <input type="text" name="apellido" id="apellido" class="form-control" placeholder="Apellido del cliente">
+        </div>
+        <div class="form-group col-6 mb-3 mt-3">
+          <input type="text" name="domicilio" id="domicilio" class="form-control" placeholder="Domicilio del cliente">
+        </div>
+        <div class="form-group col-6 mb-3 mt-3">
+          <input type="text" name="localidad" id="localidad" class="form-control" placeholder="Localidad del cliente">
+        </div>
+        <div class="form-group col-3 mb-3 mt-3">
+          <input type="tel" name="celular" id="celular" class="form-control" placeholder="Nro de celular">
+        </div>
+        <div class="form-group col-4 mb-3 mt-3">
+          <input type="email" name="mail" id="mail" class="form-control" placeholder="Correo electrónico">
+        </div>
+        <button type="submit" class="btn btn-primary {{estado}}"><i class="fa-solid fa-check"></i> Guardar</button>
+        <button type="reset" class="btn btn-secondary {{estado}}"><i class="fa-solid fa-eraser"></i> Borrar</button>
+      </form>
+    </div>
+</div>

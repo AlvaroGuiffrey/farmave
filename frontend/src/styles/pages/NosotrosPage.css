@@ -2,8 +2,6 @@
     box-sizing: border-box;
 }
 
-
-
 .historia {
     width: 80%;
     text-align: center;
@@ -11,22 +9,23 @@
 }
 
 .historia p {
-    font-size: 0.8em;
+    font-size: 1em;
 }
 
 .personas {
     width: 80%;
-    float: left;
+    float: center;
     text-align: center;
     display: block;
 }
 .persona {
-    width: 18%;
+    width: 23%;
     float: left;
-    margin-left: 2.25%;
+    margin: 2%;
     border: 1px solid #ddd;
     border-radius: 0.25em;
     box-sizing: border-box;
+    
 }
 
 .persona {

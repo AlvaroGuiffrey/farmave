@@ -10,6 +10,7 @@ import ContactoPage from './pages/ContactoPage';
 import HomePage from './pages/HomePage';
 import NosotrosPage from './pages/NosotrosPage';
 import NovedadesPage from './pages/NovedadesPage';
+import PromocionesPage from './pages/PromocionesPage';
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
           <Route path="/" element={<HomePage/>} />
           <Route path="/nosotros" element={<NosotrosPage/>} />
           <Route path="/novedades" element={<NovedadesPage/>} />
+          <Route path="/promociones" element={<PromocionesPage/>} />
           <Route path="/contacto" element={<ContactoPage/>} />
         </Routes>
       </BrowserRouter>

@@ -19,9 +19,7 @@ const Header = (props) => {
                                 <p>Docente: Flavia Ursino</p>
                                 <p>Alumno: Alvaro Guiffrey</p>" 
                         place="right"/>
-                </div>
-                
-            
+            </div>
         </header>
     );
 }

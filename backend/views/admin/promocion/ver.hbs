@@ -1,0 +1,62 @@
+<div class="container p-4 my-4 border">
+  <h2 class="center">Administrador de Promociones</h2>
+    <div class="row">
+      <div class="col text-end">
+        Hola <strong>{{usuario}}!</strong>
+        <a class="btn btn-danger" href="/admin/login/logout" title="Cerrar sesión de usuario"> 
+          <i class="fa-solid fa-arrow-right-from-bracket"></i> 
+          Cerrar Sesión
+        </a>
+        <a class="btn btn-secondary" href="/admin/promociones" title="Volver al listado de Promociones"> 
+          <i class="fa-solid fa-arrow-right-arrow-left"></i> 
+          Volver
+        </a>
+      </div>
+    </div>
+    <div class="row">
+        <div class="col-2 align-items-end">
+            <button type="button" class="btn btn-primary position-relative" title="Cantidad de promociones">
+                Promociones
+                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                        {{cantidad}}
+                    </span>
+                </button>
+        </div>
+
+        <div class="col-7">
+            <h3>Ver Promoción</h3>
+        </div>
+    </div>
+    {{#if btReservar}}
+    <div class="container my-4 border">
+        <div class="row">
+          <div class="col-sm-12">
+            <h5><strong>Reservar:</strong></h5>
+            <form action="/admin/reservas/reservar" method="post">
+              <input type="hidden" name="id_promo" value="{{promocion.id}}">
+              <div class="form-group mb-3">
+                <input type="number" name="cantidad" id="cantidad" min="1" max="{{promocion.cantidad}}" value="1">
+              </div>
+              <button type="submit" class="btn btn-primary {{estado}}"><i class="fa-solid fa-check"></i> Reservar</button>
+              <button type="reset" class="btn btn-secondary {{estado}}"><i class="fa-solid fa-eraser"></i> Borrar</button>
+            </form>
+          </div>
+        </div>
+    </div>
+    {{/if}}   
+     <div class="container my-4 border">
+        <div class="row">
+         <div class="col-sm-12">
+            <h2>{{promocion.nombre}}</h2>
+            {{#if tieneImg}}
+              <img src="{{{imagen}}}" class="img-fluid img-thumbnail" alt="Promoción sin imagen" style="margin: 20px 20px;">
+            {{/if}}
+            <hr>
+            <p>{{promocion.detalle}}</p>
+            <h4>Precio: $ {{promocion.precio}}</h4>
+            <p>Cantidad de promociones: {{promocion.cantidad}}</p>
+      </div>
+      <h6><small>Id: {{idPromocion}}</small></h6>
+     </div>
+    </div>
+</div>

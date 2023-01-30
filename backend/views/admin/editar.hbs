@@ -1,0 +1,72 @@
+{{#if error}}
+  <div class="container p-2 my-2">
+    <div class="alert alert-danger alert-dismissible">
+      <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+      <i class="fa-solid fa-triangle-exclamation"></i>
+      {{mensaje}}
+    </div>
+  </div>
+{{/if}}
+{{#if info}}
+    <div class="container p-2 my-2">
+        <div class="alert alert-info alert-dismissible" role="alert">
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            <i class="fa-solid fa-triangle-exclamation"></i>
+            {{mensajeInfo}}
+        </div>
+    </div>    
+{{/if}}
+<div class="container p-4 my-4 border">
+  <h2 class="center">Administrador de novedades</h2>
+    <div class="row">
+      <div class="col text-end">
+        Hola <strong>{{usuario}}!</strong>
+        <a class="btn btn-danger" href="/admin/login/logout" title="Cerrar sesión de usuario"> 
+          <i class="fa-solid fa-arrow-right-from-bracket"></i> 
+          Cerrar Sesión
+        </a>
+        <a class="btn btn-secondary" href="/admin/novedades" title="Volver al listado de Novedades"> 
+          <i class="fa-solid fa-arrow-right-arrow-left"></i> 
+          Volver
+        </a>
+      </div>
+    </div>
+    <div class="row">
+       <div class="col-2 align-items-end">
+            <button type="button" class="btn btn-primary position-relative" title="Cantidad de novedades">
+                Novedades
+                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                        {{cantidad}}
+                    </span>
+                </button>
+        </div>
+        <div class="col-7">
+            <h3>Modificar Novedad</h3>
+        </div>
+        <form action="/admin/novedades/editar" method="post" enctype="multipart/form-data">
+          <input type="hidden" name="id" id="id" value="{{novedad.id}}">
+          <input type="hidden" name="idUsuario" id="idUsuario" value="{{novedad.id_usuario}}">
+          <div class="form-group mb-3 mt-3">
+            <input type="text" name="titulo" id="titulo" class="form-control" placeholder="Título" value="{{novedad.titulo}}">
+          </div>
+          <div class="form-group mb-3">
+            <textarea class="form-control" rows="1" id="subtitulo" name="subtitulo" placeholder="Subtítulo">{{novedad.subtitulo}}</textarea>
+          </div>
+          <div class="form-group mb-3">
+            <p>
+              <label> Imagen: <input type="file" class="form-control" name="imagen" id="imagen"></label>
+            </p>
+            <p>
+              <label><input type="checkbox" name="imgBorrar" id="imgBorrar" value="1"> Eliminar imagen actual?</label>
+              <input type="hidden" name="imgOriginal" value="{{novedad.id_img}}">
+            </p>
+          </div>
+          <div class="form-group mb-3">
+            <textarea class="form-control" rows="4" id="cuerpo" name="cuerpo" placeholder="Cuerpo">{{novedad.cuerpo}}</textarea>  
+          </div>
+          <div><h6><small>Id: {{idNovedad}} - Autor: {{autor.usuario}}</small></h6></div>
+          <button type="submit" class="btn btn-primary" {{estado}}><i class="fa-solid fa-check"></i> Guardar</button>
+          <button type="reset" class="btn btn-secondary" {{estado}}><i class="fa-solid fa-eraser"></i> Borrar</button>
+        </form>
+    </div>
+</div>

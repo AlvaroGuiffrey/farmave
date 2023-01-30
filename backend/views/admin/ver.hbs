@@ -1,0 +1,46 @@
+<div class="container p-4 my-4 border">
+  <h2 class="center">Administrador de novedades</h2>
+    <div class="row">
+      <div class="col text-end">
+        Hola <strong>{{usuario}}!</strong>
+        <a class="btn btn-danger" href="/admin/login/logout" title="Cerrar sesión de usuario"> 
+          <i class="fa-solid fa-arrow-right-from-bracket"></i> 
+          Cerrar Sesión
+        </a>
+        <a class="btn btn-secondary" href="/admin/novedades" title="Volver al listado de Novedades"> 
+          <i class="fa-solid fa-arrow-right-arrow-left"></i> 
+          Volver
+        </a>
+      </div>
+    </div>
+    <div class="row">
+        <div class="col-2 align-items-end">
+            <button type="button" class="btn btn-primary position-relative" title="Cantidad de novedades">
+                Novedades
+                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                        {{cantidad}}
+                    </span>
+                </button>
+        </div>
+
+        <div class="col-7">
+            <h3>Ver Novedad</h3>
+        </div>
+    </div>
+     <div class="container my-4 border">
+        <div class="row">
+         <div class="col-sm-12">
+            <h2>{{novedad.titulo}}</h2>
+            {{#if tieneImg}}
+              <img src="{{{imagen}}}" class="img-fluid img-thumbnail" alt="Novedad sin imagen" style="margin: 20px 20px;">
+            {{/if}}
+            <h5><b>{{novedad.subtitulo}}</b></h5>
+            <hr>
+            <p>{{novedad.cuerpo}}</p>
+      </div>
+      <h6><small>Id: {{idNovedad}} - Autor: {{autor.usuario}} </small></h6>
+      
+     </div>
+    </div>
+       
+</div>

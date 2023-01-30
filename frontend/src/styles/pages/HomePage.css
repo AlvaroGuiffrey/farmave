@@ -15,6 +15,7 @@ aside {
     float: left;
     text-align: center;
     margin: 1em;
+    padding: 1em;
     background: orange;
     border-left: 5px solid orangered;
     

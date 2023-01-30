@@ -4,8 +4,21 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+require('dotenv').config();
+var session = require('express-session');
+var fileUpload = require('express-fileupload');
+var cors = require('cors');
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var loginRouter = require('./routes/admin/login');
+var novedadesRouter = require('./routes/admin/novedades');
+var promocionesRouter = require('./routes/admin/promociones');
+var reservasRouter = require('./routes/admin/reservas');
+var usuariosRouter = require('./routes/admin/usuarios');
+var clientesRouter = require('./routes/admin/clientes');
+var clienteNuevoRouter = require('./routes/admin/clienteNuevo');
+var apiRouter = require('./routes/api');
 
 var app = express();
 
@@ -19,8 +32,40 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(session({
+  secret: 'asfgertudhhhasdertrtyt',
+  resave: false,
+  saveUninitialized: true
+}))
+
+secured = async (req, res, next) => {
+  try {
+    
+    if (req.session.id_usuario) {
+      next()
+    } else {
+      res.redirect('/admin/login')
+    }
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+app.use(fileUpload({
+  useTempFiles: true,
+  tempFileDir: '/tmp/'
+}));
+
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/admin/login', loginRouter);
+app.use('/admin/novedades', secured, novedadesRouter);
+app.use('/admin/promociones', secured, promocionesRouter);
+app.use('/admin/reservas', secured, reservasRouter);
+app.use('/admin/usuarios', secured, usuariosRouter);
+app.use('/admin/clientes', secured, clientesRouter);
+app.use('/admin/clienteNuevo', clienteNuevoRouter);
+app.use('/api', cors(), apiRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

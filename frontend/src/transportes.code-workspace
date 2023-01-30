@@ -1,0 +1,28 @@
+{
+	"folders": [
+		{
+			"path": "../../../transportes"
+		},
+		{
+			"path": "../.."
+		},
+		{
+			"path": "../../../pruebanpm"
+		},
+		{
+			"path": "../../../modulo2unidad1tarea1"
+		},
+		{
+			"path": "../../../modulo2unidad1tarea2"
+		},
+		{
+			"path": "../../../xampp/htdocs/cursoJS-UTN/evaluacion"
+		},
+		{
+			"path": "../../../modulo2unidad2tarea"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "farmave"
+	}
+}
